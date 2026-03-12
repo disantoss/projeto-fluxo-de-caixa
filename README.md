@@ -4,38 +4,122 @@
 ![Python](https://img.shields.io/badge/Stack-Python-blue?logo=python)
 ![Power BI](https://img.shields.io/badge/Stack-Power_BI-yellow?logo=power-bi)
 
-## 📌 Visão Geral do Projeto
-Este projeto entrega uma solução completa de **Analytics Engineering** aplicada ao setor financeiro. O objetivo foi transformar dados brutos de movimentações bancárias e contábeis em um dashboard estratégico de alto nível (Dark Mode), focado no monitoramento de saúde de caixa, lucratividade e indicadores de crescimento.
+---
+
+# 📌 Visão Geral do Projeto
+
+Este projeto apresenta uma solução completa de **Analytics Engineering aplicada à gestão financeira de uma cafeteria**.
+
+Para simular um cenário real de análise de dados no setor de **food service**, foram utilizados **dados públicos representando movimentações financeiras e operacionais de uma cafeteria**, incluindo receitas, custos e despesas ao longo do tempo.
+
+O objetivo do projeto foi transformar **dados financeiros brutos** em um **dashboard analítico e estratégico**, permitindo acompanhar a saúde financeira do negócio e apoiar decisões de gestão.
+
+A solução permite analisar indicadores como:
+
+- Receita total
+- Custos e despesas operacionais
+- Lucro e margem líquida
+- Fluxo de caixa mensal
+- Burn Rate (taxa de queima de caixa)
+- Runway (tempo estimado de sobrevivência financeira)
+
+Esse tipo de análise é comum em empresas que precisam monitorar **sustentabilidade financeira, eficiência operacional e crescimento do negócio**.
 
 ---
 
-## 🛠️ O Diferencial Técnico: Pipeline de Dados
+# 🛠️ Pipeline de Dados
 
-### 1. Camada de ETL & Engenharia (Python)
-Diferente de modelos simples, os dados aqui passam por um tratamento prévio em Python (`scripts/data_processing.py`), garantindo escalabilidade:
-* **Consolidação Automática:** União de múltiplos arquivos mensais em um dataframe único.
-* **Limpeza e Padronização:** Tratamento de nulos, tipagem de moedas e datas.
-* **Classificação de Categorias:** Algoritmo simples de mapeamento para categorizar transações (Receita, CMV, OpEx, Folha) antes da carga no BI.
+## 1️⃣ Camada de ETL & Engenharia (Python)
 
-### 2. Modelagem e DRE Estruturada (Power BI)
-A parte mais complexa do projeto foi a criação da **DRE (Demonstração de Resultados) Dinâmica**:
-* **Tabela de Máscara (Disconnected Table):** Criação de um gabarito de estrutura para permitir linhas de subtotal (Ex: Lucro Bruto, EBITDA) que não existem na base original.
-* **DAX Avançado:** Uso intenso da função `SWITCH(TRUE()...)` para direcionar cálculos específicos conforme a linha da DRE selecionada.
-* **Indicadores Críticos:** * **Burn Rate:** Monitoramento de queima de caixa mensal.
-  * **Runway:** Cálculo de pista de sobrevivência (meses de caixa restantes).
-  * **Margem Líquida %:** Eficiência do lucro sobre a receita bruta.
+Antes da carga no Power BI, os dados passam por uma etapa de processamento em Python (`scripts/data_processing.py`), garantindo organização e preparação adequada para análise.
+
+Principais etapas do pipeline:
+
+**Consolidação de dados**  
+União automática de múltiplos arquivos mensais em um único dataframe.
+
+**Limpeza e padronização**  
+Tratamento de valores nulos, padronização de tipos de dados e formatação de datas e valores monetários.
+
+**Classificação de categorias financeiras**  
+Aplicação de uma lógica de categorização para classificar as transações em:
+
+- Receita
+- CMV (Custo de Mercadoria Vendida)
+- Despesas Operacionais (OpEx)
+- Folha de Pagamento
+
+Essa estrutura permite construir análises financeiras mais organizadas e facilita a modelagem dentro do Power BI.
 
 ---
 
-## 🎨 Design & UI/UX
-O dashboard foi desenvolvido com uma interface **Dark Mode**, inspirada em sistemas financeiros modernos da Apple e Nubank, utilizando:
-* **Backgrounds Personalizados:** Criados para delimitar espaços e evitar poluição visual.
-* **Formatação Condicional:** Cores neon (Verde/Ciano para lucro, Vermelho/Rosa para prejuízo) para leitura imediata da performance.
-* **Hierarquia Visual:** Cards transparentes integrados ao design para foco nos KPIs principais.
+# 📊 Modelagem Financeira e DRE Dinâmica (Power BI)
+
+A etapa analítica foi desenvolvida no **Power BI**, com foco na construção de uma **Demonstração de Resultados (DRE) dinâmica**.
+
+Para estruturar esse modelo financeiro, foram aplicadas algumas técnicas importantes de modelagem analítica:
+
+**Tabela de Máscara (Disconnected Table)**  
+Criação de uma tabela auxiliar para estruturar a DRE e permitir a exibição de subtotais financeiros que não existem diretamente na base de dados, como:
+
+- Lucro Bruto  
+- EBITDA  
+- Lucro Líquido  
+
+**DAX Avançado**  
+Uso da função `SWITCH(TRUE()...)` para direcionar diferentes cálculos financeiros dependendo da linha selecionada na estrutura da DRE.
+
+**Indicadores Financeiros Estratégicos**
+
+O dashboard também calcula métricas importantes para análise financeira:
+
+**Burn Rate**  
+Indica a velocidade com que o caixa está sendo consumido mensalmente.
+
+**Runway**  
+Estima por quantos meses o negócio consegue operar com o caixa atual.
+
+**Margem Líquida (%)**  
+Mede a eficiência da operação em gerar lucro a partir da receita.
 
 ---
 
-## 📉 Visualização do Dashboard
+# 🎨 Design & UI/UX
+
+O dashboard foi desenvolvido com interface **Dark Mode**, inspirada em aplicações financeiras modernas.
+
+Principais elementos de design:
+
+- **Backgrounds personalizados** para organização visual dos blocos de análise
+- **Formatação condicional** com cores intuitivas para facilitar leitura de desempenho
+- **Hierarquia visual clara**, destacando os KPIs principais do negócio
+
+O objetivo foi criar um painel que seja **ao mesmo tempo analítico e visualmente intuitivo para tomada de decisão**.
+
+---
+
+# 📉 Visualização do Dashboard
+
 <img width="1445" height="812" alt="image" src="https://github.com/user-attachments/assets/9590f433-2314-4cf9-bea1-04548eac3a9a" />
 
+---
 
+# 🚀 Tecnologias Utilizadas
+
+- **Python**
+- **Pandas**
+- **Power BI**
+- **DAX**
+- **Git / GitHub**
+
+---
+
+# 📌 Objetivo do Projeto
+
+Este projeto foi desenvolvido como **caso prático de engenharia e análise de dados aplicada a um cenário de negócio**, demonstrando habilidades em:
+
+- ETL com Python
+- Preparação e modelagem de dados
+- Modelagem analítica no Power BI
+- Construção de dashboards estratégicos
+- Aplicação de conceitos financeiros em análise de dados
