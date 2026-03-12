@@ -36,5 +36,6 @@ O dashboard foi desenvolvido com uma interface **Dark Mode**, inspirada em siste
 ---
 
 ## 📉 Visualização do Dashboard
-<img width="1448" height="813" alt="image" src="https://github.com/user-attachments/assets/e860bb8f-f642-4a70-81f4-e3a8b54d334f" />
+<img width="1445" height="812" alt="image" src="https://github.com/user-attachments/assets/9590f433-2314-4cf9-bea1-04548eac3a9a" />
+
 
